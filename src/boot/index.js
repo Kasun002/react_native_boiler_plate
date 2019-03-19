@@ -53,8 +53,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(index);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#EFEFF5',
   },
   title: {
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
     marginBottom: 5,
+    color: '#333333',
+    textAlign: 'center',
   },
   buttonContainer: {
     width: '80%',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
     padding: 10,
-    borderRadius: 5,  
+    borderRadius: 5,
     alignItems: 'center',
     backgroundColor: 'red',
     justifyContent: 'center',
