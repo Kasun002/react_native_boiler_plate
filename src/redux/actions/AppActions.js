@@ -1,8 +1,13 @@
 import * as ActionTypes from '../types';
 
-export const appSampleAction = (count) => {
+export const incrementCount = () => {
 	return {
-		type: ActionTypes.SAMPLE_APP_ACTION,
-		payload: count,
+		type: ActionTypes.INCREMENT_APP_COUNT,
+	}
+};
+
+export const decrementCount = () => {
+	return {
+		type: ActionTypes.DECREMENT_APP_COUNT,
 	}
 };

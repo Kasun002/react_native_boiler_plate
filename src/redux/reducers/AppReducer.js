@@ -1,4 +1,3 @@
-import { createReducer } from '../../lib/handlers/ReduxHandler';
 import * as ActionTypes from '../types';
 
 const INITIAL_STATE = {
@@ -7,8 +6,10 @@ const INITIAL_STATE = {
 
 export const appReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ActionTypes.SAMPLE_APP_ACTION:
-      return {...state, count: state.count + action.payload};
+    case ActionTypes.INCREMENT_APP_COUNT:
+      return {...state, count: state.count + 1};
+    case ActionTypes.DECREMENT_APP_COUNT:
+      return {...state, count: state.count - 1};
     default:
       return state
   }
