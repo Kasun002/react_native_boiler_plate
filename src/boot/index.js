@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   buttonText: {
-    color: '#fff',
     fontSize: 20,
+    color: '#fff',
   },
   button: {
     flex: 1,

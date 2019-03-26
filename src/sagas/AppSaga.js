@@ -1,8 +1,17 @@
-import { put, takeEvery, take, delay } from 'redux-saga/effects';
+import { put, takeEvery, take, delay, call } from 'redux-saga/effects';
 import * as ActionTypes from '../redux/types';
+import API from '../api';
+import { ApiEndPoint, ApiMethod } from '../api/ApiConstants';
 
 function* counterIncrementSaga() {
-  yield put({type: ActionTypes.INCREMENT_COUNT, payload: { value: 1}});
+  try {
+    // sample api call
+    // response = yield call(API(ApiEndPoint.GET_USERS, ApiMethod.GET));
+    // console.log('>>>> response >>', response);
+    yield put({type: ActionTypes.INCREMENT_COUNT, payload: { value: 1}});
+  } catch (error) {
+    console.log('>> error >>', error);
+  }
 }
 
 function* counterDecrementSaga() {
