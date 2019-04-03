@@ -4,9 +4,10 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 import { incrementCount, decrementCount } from '../redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import { Color, Image } from '../config';
 
-type Props = {};
-class index extends Component<Props> {
+class index extends Component {
 
   onPressIncrement = () => {
     this.props.incrementCount();
@@ -34,6 +35,12 @@ class index extends Component<Props> {
   }
 }
 
+index.propTypes = {
+  count: PropTypes.number,
+  incrementCount: PropTypes.func,
+  decrementCount : PropTypes.func,
+};
+
 
 const mapStateToProps = state => {
   return {
@@ -55,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#EFEFF5',
+    backgroundColor: Color.ATHENS_GRAY,
   },
   title: {
     margin: 30,
@@ -71,7 +78,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     marginBottom: 5,
-    color: '#333333',
+    color: Color.MINE_SHAFT,
     textAlign: 'center',
   },
   buttonContainer: {
@@ -81,7 +88,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: '#fff',
+    color: Color.WHITE,
   },
   button: {
     flex: 1,
@@ -93,9 +100,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   positiveButton: {
-    backgroundColor: '#ff637c',
+    backgroundColor: Color.WILD_WATERMELON,
   },
   negativeButton: {
-    backgroundColor: '#4dc2c2',  
+    backgroundColor: Color.FOUNTAIN_BLUE,  
   }
 });
