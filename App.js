@@ -1,23 +1,20 @@
 import React from 'react';
+import { ActivityIndicator } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import Boot from './src/boot/index';
-import reducer from './src/redux/reducers/index';
-import createSagaMiddleware from 'redux-saga';
-import sagas from './src/sagas';
+import configureStore from './src/store/ConfigureStore';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  reducer,
-  applyMiddleware(sagaMiddleware)
-);
+const { persister, store } = configureStore();
 
-sagaMiddleware.run(sagas);
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Boot />
+        <PersistGate loading={<ActivityIndicator />} persistor={persister}>
+          <Boot />
+        </PersistGate>
       </Provider>
     );
   }

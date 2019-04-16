@@ -20,7 +20,7 @@ class index extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>React Native Boiler Plate</Text>
+        <Text style={styles.title}>{this.props.title}</Text>
         <Text style={styles.number}>{this.props.count}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this.onPressDecrement} style={[styles.button, styles.positiveButton]}>
@@ -45,6 +45,7 @@ index.propTypes = {
 const mapStateToProps = state => {
   return {
       count: state.appReducer.count,
+      title: state.appReducer.title,
   };
 };
 
