@@ -1,14 +1,15 @@
 
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import {
+  StyleSheet, Text, View, TouchableOpacity
+} from 'react-native';
 import { connect } from 'react-redux';
-import { incrementCount, decrementCount } from '../redux/actions/AppActions';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { incrementCount, decrementCount } from '../redux/actions/AppActions';
 import { Color, Image } from '../config';
 
 class index extends Component {
-
   onPressIncrement = () => {
     this.props.incrementCount();
   }
@@ -24,10 +25,10 @@ class index extends Component {
         <Text style={styles.number}>{this.props.count}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={this.onPressDecrement} style={[styles.button, styles.positiveButton]}>
-              <Text style={styles.buttonText}>Decrement</Text>
+            <Text style={styles.buttonText}>Decrement</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={this.onPressIncrement} style={[styles.button, styles.negativeButton]}>
-              <Text style={styles.buttonText}>Increment</Text>
+            <Text style={styles.buttonText}>Increment</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -38,16 +39,14 @@ class index extends Component {
 index.propTypes = {
   count: PropTypes.number,
   incrementCount: PropTypes.func,
-  decrementCount : PropTypes.func,
+  decrementCount: PropTypes.func,
 };
 
 
-const mapStateToProps = state => {
-  return {
-      count: state.appReducer.count,
-      title: state.appReducer.title,
-  };
-};
+const mapStateToProps = state => ({
+  count: state.appReducer.count,
+  title: state.appReducer.title,
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
@@ -104,6 +103,6 @@ const styles = StyleSheet.create({
     backgroundColor: Color.WILD_WATERMELON,
   },
   negativeButton: {
-    backgroundColor: Color.FOUNTAIN_BLUE,  
+    backgroundColor: Color.FOUNTAIN_BLUE,
   }
 });
